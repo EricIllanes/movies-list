@@ -1,4 +1,4 @@
-import { GET_MOVIES } from "./actions";
+import { SAVE_MOVIES } from "./actions";
 
 const initialState={
     moviesHome : [],
@@ -6,7 +6,7 @@ const initialState={
 
 export default function rootReducer(state = initialState, action){
     switch(action.type){
-        case GET_MOVIES:
+        case SAVE_MOVIES:
             return{
                 ...state,
                 moviesHome: action.payload

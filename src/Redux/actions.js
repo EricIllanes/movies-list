@@ -1,48 +1,13 @@
 import axios from "axios";
-export const GET_MOVIES = "GET_MOVIES"
+export const SAVE_MOVIES = "GET_MOVIES"
+const {VITE_API_KEY, VITE_API_HOST} = import.meta.env
+// const VITE_API_KEY = import.meta.env.VITE_API_KEY
+// const VITE_API_HOST = import.meta.env.VITE_API_HOST
 
-// export async function getMovies() {
-//     return async function(dispatch){
-//         const url = "https://moviesdatabase.p.rapidapi.com/titles?limit=20";
-//         const headers = {
-//             "X-RapidAPI-Key": "af05b403e3mshce3e077c94ad345p13f6ddjsn56e6227a29c1",
-//             "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com"
-//         };
-//         try {
-//           const response = await axios.get(url, {headers});
-//           dispatch({
-//             type: GET_MOVIES,
-//             payload: response.data
-//           })
-//       } catch (error) {
-//           console.error(error);
-//           dispatch({
-//             type: GET_MOVIES,
-//             payload: null
-//           })
-//       }
-
-//     }
-
-// }
-
-export const getMovies = () => async (dispatch)=>{
-    const url = "https://moviesdatabase.p.rapidapi.com/titles?limit=20";
-    const headers = {
-        "X-RapidAPI-Key": "af05b403e3mshce3e077c94ad345p13f6ddjsn56e6227a29c1",
-        "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com"
-    };
-    try {
-      const response = await axios.get(url, {headers});
+export const saveMovies = (movies) => async (dispatch)=>{
       dispatch({
-        type: GET_MOVIES,
-        payload: response.data
+        type: SAVE_MOVIES,
+        payload: movies
       })
-  } catch (error) {
-      console.error(error);
-      dispatch({
-        type: GET_MOVIES,
-        payload: null
-      })
-  }
+
 }
